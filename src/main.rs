@@ -21,6 +21,7 @@ fn main() {
             Event::Key(key) => {
                 match key.code {
                     // Moving by zero actually moves by one in crossterm 0.17.7
+                    // in terminals that support ANSI escape codes.
                     KeyCode::Left => execute!(stdout, cursor::MoveLeft(0)).unwrap(),
                     KeyCode::Right => execute!(stdout, cursor::MoveRight(0)).unwrap(),
                     KeyCode::Up => execute!(stdout, cursor::MoveUp(0)).unwrap(),
